@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta name="generator" content="Hugo 0.123.4"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<title> - munpack</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description"
+    content="munpack is a Python library for multivariate exploratory data analysis in Python. It includes a variety of methods for summarizing tabular data, including principal component analysis and correspondence analysis. Prince provides efficient implementations, using a scikit-learn API.
+Methods # flowchart TD cat?(Categorical data?) --&gt; |&#34;✅&#34;| num_too?(Numerical data too?) num_too? --&gt; |&#34;✅&#34;| FAMD num_too? --&gt; |&#34;❌&#34;| multiple_cat?(More than two columns?) multiple_cat? --&gt; |&#34;✅&#34;| MCA multiple_cat? --&gt; |&#34;❌&#34;| CA cat? --&gt; |&#34;❌&#34;| groups? ">
+<link rel="canonical" href="http://localhost:1313/" />
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|Noto+Emoji&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|Noto+Emoji&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" />
+</noscript>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/hugo-tufte.min.css">
+
+
+
+<link rel="stylesheet" href="/css/hugo-tufte-options.min.css">
+
+<link rel="stylesheet" href="/css/hugo-tufte-override.css">
+
+</head>
+<body>
+
+
+<article id="main" class="home-page">
+<header class="brand">
+<h1>munpack</h1>
+<p class="subtitle"></p>
+<nav class="menu">
+    <ul>
+    
+        <li><a href="/">Home</a></li>
+    
+        <li><a href="/ratio/">Ratio</a></li>
+    
+        <li><a href="https://github.com/carbonfact/munpack">GitHub</a></li>
+    
+    </ul>
+</nav>
+
+<hr />
+</header>
+
+
+  <section>
+  <!-- raw HTML omitted -->
+<p>munpack is a Python library for multivariate exploratory data analysis in Python. It includes a variety of methods for summarizing tabular data, including principal component analysis and correspondence analysis. Prince provides efficient implementations, using a scikit-learn API.</p>
+<h2 id="methods">
+Methods
+<a href="#methods" class="heading-anchor">#</a>
+</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
+    cat?(Categorical data?) --&gt; |&#34;✅&#34;| num_too?(Numerical data too?)
+    num_too? --&gt; |&#34;✅&#34;| FAMD
+    num_too? --&gt; |&#34;❌&#34;| multiple_cat?(More than two columns?)
+    multiple_cat? --&gt; |&#34;✅&#34;| MCA
+    multiple_cat? --&gt; |&#34;❌&#34;| CA
+    cat? --&gt; |&#34;❌&#34;| groups?(Groups of columns?)
+    groups? --&gt; |&#34;✅&#34;| MFA
+    groups? --&gt; |&#34;❌&#34;| shapes?(Analysing shapes?)
+    shapes? --&gt; |&#34;✅&#34;| GPA
+    shapes? --&gt; |&#34;❌&#34;| PCA
+</code></pre><h2 id="installation">
+Installation
+<a href="#installation" class="heading-anchor">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install prince
+</span></span></code></pre></div><p>🎨 Prince uses <a href="https://altair-viz.github.io/">Altair</a> for making charts.</p>
+<h2 id="correctness">
+Correctness
+<a href="#correctness" class="heading-anchor">#</a>
+</h2>
+<p>Prince is tested against scikit-learn and <a href="http://factominer.free.fr/">FactoMineR</a>. For the latter, <a href="https://rpy2.github.io/">rpy2</a> is used to run code in R, and convert the results to Python, which allows running automated tests. See more in the <a href="https://github.com/MaxHalford/prince/tree/master/tests"><code>tests</code></a> directory.</p>
+<h2 id="citation">
+Citation
+<a href="#citation" class="heading-anchor">#</a>
+</h2>
+<p>Please use this citation if you use this software as part of a scientific publication.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bibtex" data-lang="bibtex"><span style="display:flex;"><span><span style="color:#3f6e75">@software</span>{<span style="color:#000">Halford_Prince</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#836c28">author</span> = <span style="color:#c41a16">{Halford, Max}</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#836c28">license</span> = <span style="color:#c41a16">{MIT}</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#836c28">title</span> = <span style="color:#c41a16">{{Prince}}</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#836c28">url</span> = <span style="color:#c41a16">{https://github.com/MaxHalford/prince}</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="support">
+Support
+<a href="#support" class="heading-anchor">#</a>
+</h2>
+<p>I made Prince when I was at university, back in 2016. I&rsquo;ve had very little time over the years to maintain this package. I spent a significant of time in 2022 to revamp the entire package. Prince has now been downloaded over <a href="https://pepy.tech/project/prince">1 million times</a>. I would be grateful to anyone willing to <a href="https://github.com/sponsors/MaxHalford">sponsor</a> me. Sponsorships allow me to spend more time working on open source software, including Prince.</p>
+<!-- raw HTML omitted -->
+<h2 id="license">
+License
+<a href="#license" class="heading-anchor">#</a>
+</h2>
+<p>The MIT License (MIT). Please see the <a href="https://github.com/MaxHalford/prince/blob/master/LICENSE">license file</a> for more information.</p>
+
+  </section>
+
+<section class="page-list">
+
+
+
+
+</section>
+
+
+
+<footer class="page-footer">
+<hr />
+
+<div class="previous-post" style="display:inline-block;">
+  
+</div>
+
+<div class="next-post", style="display:inline-block;float:right;">
+  
+</div>
+
+<ul class="page-footer-menu">
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+</ul>
+
+
+
+
+
+</footer>
+
+</article>
+
+
+
+
+
+
+
+  <script>(function(){var e,t,n,s=document.getElementsByTagName("code");for(n=0;n<s.length;){if(t=s[n],t.parentNode.tagName!=="PRE"&&t.childElementCount===0&&!t.classList.contains("nolatex")&&(e=t.textContent,/^\$[^$]/.test(e)&&/[^$]\$$/.test(e)&&(e=e.replace(/^\$/,"\\(").replace(/\$$/,"\\)"),t.textContent=e),/^\\\((.|\s)+\\\)$/.test(e)||/^\\\[(.|\s)+\\\]$/.test(e)||/^\$(.|\s)+\$$/.test(e)||/^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(e))){t.outerHTML=t.innerHTML;continue}n++}})()</script>
+
+
+<link rel="stylesheet" href="/katex@/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="/katex@/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="/katex@/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            
+            
+            
+            
+            
+            
+            trust: (context) => ['\\htmlId', '\\href'].includes(context.command),
+            macros: {
+              "\\eqref": "\\href{###1}{(\\text{#1})}",
+              "\\ref": "\\href{###1}{\\text{#1}}",
+              "\\label": "\\htmlId{#1}{}"
+            }
+        });
+    });
+</script>
+
+
+
+</body>
+
+</html>

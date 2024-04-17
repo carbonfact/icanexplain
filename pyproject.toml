@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "munpack"
+version = "0.1.0"
+description = "Unpack metrics to explain their evolution"
+authors = ["Max Halford <maxhalford25@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.2"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--doctest-modules",
+    "--doctest-glob=README.md",
+    "--verbose",
+    "--color=yes",
+    "--strict-markers",
+    "--disable-warnings"
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

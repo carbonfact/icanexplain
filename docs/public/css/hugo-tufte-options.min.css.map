@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "hugo-tufte-options.min.css",
+	"sourceRoot": "/Users/max/projects/carbonfact/munpack/docs",
+	"sources": [
+		"themes/hugo-tufte/assets/scss/hugo-tufte-options.scss"
+	],
+	"sourcesContent": [
+		"\n\n\n"
+	],
+	"names": [],
+	"mappings": ""
+}
