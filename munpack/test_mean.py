@@ -124,7 +124,7 @@ def test_claims():
     >>> unpacker = munpack.MeanUnpacker(
     ...     fact='amount',
     ...     period='year',
-    ...     dimensions=['claim_type']
+    ...     group='claim_type'
     ... )
     >>> unpack = unpacker(ibis.memtable(claims_df))
     >>> unpack.execute()
@@ -181,7 +181,7 @@ def test_claims_with_gaps():
     >>> unpacker = munpack.MeanUnpacker(
     ...     fact='amount',
     ...     period='year',
-    ...     dimensions=['claim_type']
+    ...     group='claim_type'
     ... )
     >>> unpack = unpacker(ibis.memtable(claims_df))
     >>> unpack.execute()
@@ -192,5 +192,64 @@ def test_claims_with_gaps():
     3  2023  Psychiatrist   0.000000  -0.000000
     4  2024       Dentist -25.341250 -12.722187
     5  2024  Psychiatrist  74.079375 -61.460313
+
+    """
+
+
+def test_clicks():
+    """
+
+    >>> import pandas as pd
+    >>> traffic_agg = pd.DataFrame([
+    ...     {'timestamp': '2018-01-01', 'dim': 'A', 'clicks': 150, 'impression': 1000},
+    ...     {'timestamp': '2018-01-01', 'dim': 'B', 'clicks': 150, 'impression': 2000},
+    ...     {'timestamp': '2018-02-01', 'dim': 'A', 'clicks': 200, 'impression': 1000},
+    ...     {'timestamp': '2018-02-01', 'dim': 'B', 'clicks': 300, 'impression': 2000},
+    ...     {'timestamp': '2019-01-01', 'dim': 'A', 'clicks': 120, 'impression': 1100},
+    ...     {'timestamp': '2019-01-01', 'dim': 'B', 'clicks': 200, 'impression': 2150},
+    ...     {'timestamp': '2019-02-01', 'dim': 'A', 'clicks': 242, 'impression': 1100},
+    ...     {'timestamp': '2019-02-01', 'dim': 'B', 'clicks': 323, 'impression': 2150},
+    ... ])
+    >>> traffic_agg['timestamp'] = pd.to_datetime(traffic_agg['timestamp'])
+
+    The figures are aggregated, which isn't the usual expected format. A first solution is to
+    expand the data into individual samples.
+
+    >>> import itertools
+    >>> traffic = pd.DataFrame(itertools.chain(
+    ...     *[[{'timestamp': r['timestamp'], 'dim': r['dim'], 'click': True} for _ in range(r['clicks'])] +
+    ...     [{'timestamp': r['timestamp'], 'dim': r['dim'], 'click': False} for _ in range(r['impression'] - r['clicks'])]
+    ...     for r in traffic_agg.to_dict(orient='records')]
+    ... ))
+    >>> traffic = traffic.assign(
+    ...     year=traffic.timestamp.dt.year,
+    ...     month=traffic.timestamp.dt.month
+    ... )
+    >>> traffic.groupby(['timestamp', 'dim'])['click'].agg(['sum', 'size']).reset_index()
+       timestamp dim  sum  size
+    0 2018-01-01   A  150  1000
+    1 2018-01-01   B  150  2000
+    2 2018-02-01   A  200  1000
+    3 2018-02-01   B  300  2000
+    4 2019-01-01   A  120  1100
+    5 2019-01-01   B  200  2150
+    6 2019-02-01   A  242  1100
+    7 2019-02-01   B  323  2150
+
+    >>> import ibis
+    >>> import munpack
+
+    >>> unpacker = munpack.MeanUnpacker(
+    ...     fact='click',
+    ...     period=['year', 'month'],
+    ...     group='dim',
+    ... )
+    >>> unpack = unpacker(ibis.memtable(traffic, name='traffic'))
+    >>> unpack.execute()
+       year  month dim     inner       mix
+    0  2019      1   A -0.013846  0.000264
+    1  2019      1   B  0.011923  0.000120
+    2  2019      2   A  0.006769  0.000134
+    3  2019      2   B  0.000154  0.000122
 
     """

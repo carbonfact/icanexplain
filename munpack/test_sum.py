@@ -87,7 +87,7 @@ def test_claims():
     >>> unpacker = munpack.SumUnpacker(
     ...     fact='amount',
     ...     period='year',
-    ...     dimensions=['claim_type']
+    ...     group='claim_type'
     ... )
     >>> unpack = unpacker(ibis.memtable(claims_df))
     >>> unpack.execute()
@@ -146,7 +146,7 @@ def test_claims_with_gaps():
     >>> unpacker = munpack.SumUnpacker(
     ...     fact='amount',
     ...     period='year',
-    ...     dimensions=['claim_type']
+    ...     group='claim_type'
     ... )
     >>> unpack = unpacker(ibis.memtable(claims_df))
     >>> unpack.execute()

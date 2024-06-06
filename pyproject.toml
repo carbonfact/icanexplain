@@ -7,11 +7,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pandas = "^2.2.1"
-
+ibis-framework = "^9.0.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.2"
+jupyter = "^1.0.0"
+pandas = "^2.2.1"
+pytest = "^8.2.1"
+names = "^0.3.0"
+ibis-framework = {extras = ["duckdb", "pandas"], version = "^9.0.0"}
 
 [tool.pytest.ini_options]
 addopts = [
