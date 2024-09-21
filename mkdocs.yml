@@ -1,0 +1,46 @@
+site_name: icanexplain
+
+nav:
+  - Introduction:
+      - index.md
+      - installation.md
+  - Examples:
+      - examples/iowa-whiskey-sales.md # total
+      - examples/fashion-brand-co2e.md # rate
+      - examples/simple-revenue-funnel.md # funnel
+      - examples/ibis.md
+theme:
+  name: material
+  font:
+    text: Noto Sans Mono
+  features:
+    - navigation.tabs
+    - tables
+    - content.code.copy
+  palette:
+    primary: black
+  icon:
+    logo: material/chart-tree
+
+extra_css:
+  - style.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+      permalink_title: null
+  - pymdownx.arithmatex:
+      generic: true

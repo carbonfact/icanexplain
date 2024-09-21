@@ -5,3 +5,6 @@ docs/.hugo_build.lock
 /*.ipynb
 .ipynb_checkpoints
 .DS_Store
+.pytest_cache
+*.ddb
+*.ddb.wal

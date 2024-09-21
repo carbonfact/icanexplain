@@ -1,0 +1,6 @@
+# Funnel decomposition
+
+
+```python
+# Funnel
+```
