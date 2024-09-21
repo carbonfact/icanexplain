@@ -1,0 +1,6 @@
+# Ratio decomposition
+
+
+```python
+
+```
