@@ -1,6 +1,6 @@
-# icanexplain ✂️
+# icanexplain ~ explain why metrics change
 
-## Example
+This library
 
 Let's say you're an analyst at an Airbnb-like company, and you're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
 
