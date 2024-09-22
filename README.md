@@ -1,5 +1,32 @@
 # icanexplain
 
+<p>
+<!-- Tests -->
+<a href="https://github.com/carbonfact/icanexplain/actions/workflows/unit-tests.yml">
+    <img src="https://github.com/carbonfact/icanexplain/actions/workflows/unit-tests.yml/badge.svg" alt="tests">
+</a>
+
+<!-- Code quality -->
+<a href="https://github.com/carbonfact/icanexplain/actions/workflows/code-quality.yml">
+    <img src="https://github.com/carbonfact/icanexplain/actions/workflows/code-quality.yml/badge.svg" alt="code_quality">
+</a>
+
+<!-- Documentation -->
+<a href="https://carbonfact.github.io/icanexplain">
+    <img src="https://img.shields.io/website?label=docs&style=flat-square&url=https%3A%2F%2Fcarbonfact.github.io/icanexplain%2F" alt="documentation">
+</a>
+
+<!-- PyPI -->
+<a href="https://pypi.org/project/icanexplain">
+    <img src="https://img.shields.io/pypi/v/icanexplain.svg?label=release&color=blue" alt="pypi">
+</a>
+
+<!-- License -->
+<a href="https://opensource.org/license/apache-2-0/">
+    <img src="https://img.shields.io/github/license/carbonfact/icanexplain" alt="license">
+</a>
+</p>
+
 _Explain why metrics change by unpacking them_
 
 This library is here to help with the difficult task of explaining why a metric changes. It's particularly useful for analysts, data scientists, analytics engineers, and business intelligence professionals who need to understand the drivers of a metric's change.

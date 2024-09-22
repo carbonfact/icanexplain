@@ -8,3 +8,4 @@ docs/.hugo_build.lock
 .pytest_cache
 *.ddb
 *.ddb.wal
+dist/
