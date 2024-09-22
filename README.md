@@ -82,6 +82,7 @@ Here's how to interpret this explanation:
 
 Here's a visual representation of this last interpretation:
 
-<div>
-    <img src="https://github.com/user-attachments/assets/d93a8b33-929f-4895-87c8-1b60c8d3bb2f" alt="example" width="70%"/>
+<div align="center">
+
+    <img src="https://github.com/user-attachments/assets/19a10291-18d3-42aa-ad45-17af32f01e8f" alt="example" width="70%"/>
 </div>
