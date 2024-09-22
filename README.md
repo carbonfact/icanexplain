@@ -1,4 +1,6 @@
-# icanexplain ~ explain why metrics change
+# icanexplain
+
+_Explain why metrics change by unpacking them_
 
 This library is here to help with the difficult task of explaining why a metric changes. It's particularly useful for analysts, data scientists, analytics engineers, and business intelligence professionals who need to understand the drivers of a metric's change.
 

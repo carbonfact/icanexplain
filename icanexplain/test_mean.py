@@ -1,18 +1,17 @@
 import collections
 import random
-import names
+import names  # type: ignore[import]
 import pandas as pd
 
 
 def make_claims() -> pd.DataFrame:
-
     random.seed(42)
 
     # Function to generate a random cost based on the claim type and year
     def generate_claim_cost(claim_type, year):
-        if claim_type == 'Dentist':
+        if claim_type == "Dentist":
             base_cost = 100
-        elif claim_type == 'Psychiatrist':
+        elif claim_type == "Psychiatrist":
             base_cost = 150
 
         # Adjust cost based on year
@@ -26,9 +25,9 @@ def make_claims() -> pd.DataFrame:
         return round(cost, 2)
 
     # Generating sample data
-    claim_types = ['Dentist', 'Psychiatrist']
+    claim_types = ["Dentist", "Psychiatrist"]
     years = [2021, 2022, 2023, 2024]
-    people = ['John', 'Jane', 'Michael', 'Emily', 'William']
+    people = ["John", "Jane", "Michael", "Emily", "William"]
 
     data = []
     for year in years:
@@ -42,30 +41,37 @@ def make_claims() -> pd.DataFrame:
         people.extend(new_people)
 
         for person in people_this_year:
-            num_claims = random.randint(1, 5)  # Random number of claims per existing customer per year
+            num_claims = random.randint(
+                1, 5
+            )  # Random number of claims per existing customer per year
             for _ in range(num_claims):
                 claim_type = random.choice(claim_types)
                 cost = generate_claim_cost(claim_type, year)
-                date = pd.to_datetime(f"{random.randint(1, 12)}/{random.randint(1, 28)}/{year}", format='%m/%d/%Y')
+                date = pd.to_datetime(
+                    f"{random.randint(1, 12)}/{random.randint(1, 28)}/{year}",
+                    format="%m/%d/%Y",
+                )
                 data.append([person, claim_type, date, year, cost])
 
     # Create the DataFrame
-    columns = ['person', 'claim_type', 'date', 'year', 'amount']
+    columns = ["person", "claim_type", "date", "year", "amount"]
     claims = pd.DataFrame(data, columns=columns)
 
     # Indicate whether people are existing, new, or returning
     years_seen = collections.defaultdict(set)
     statuses = []
-    for claim in claims.to_dict(orient='records'):
-        years_seen[claim['person']].add(claim['year'])
-        if claim['year'] - 1 in years_seen[claim['person']]:
-            statuses.append('EXISTING')
-        elif any(year < claim['year'] for year in years_seen[claim['person']]):
-            statuses.append('RETURNING')
-        elif not {year for year in years_seen[claim['person']] if year != claim['year']}:
-            statuses.append('NEW')
+    for claim in claims.to_dict(orient="records"):
+        years_seen[claim["person"]].add(claim["year"])
+        if claim["year"] - 1 in years_seen[claim["person"]]:
+            statuses.append("EXISTING")
+        elif any(year < claim["year"] for year in years_seen[claim["person"]]):
+            statuses.append("RETURNING")
+        elif not {
+            year for year in years_seen[claim["person"]] if year != claim["year"]
+        }:
+            statuses.append("NEW")
 
-    claims['status'] = statuses
+    claims["status"] = statuses
 
     return claims
 

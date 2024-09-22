@@ -3,18 +3,17 @@ import pandas as pd
 
 
 def make_claims() -> pd.DataFrame:
-
     random.seed(42)
 
     # Function to generate a random cost based on the claim type and year
     def generate_claim_cost(claim_type, year):
-        if claim_type == 'Dentist':
+        if claim_type == "Dentist":
             base_cost = 100
-        elif claim_type == 'Psychiatrist':
+        elif claim_type == "Psychiatrist":
             base_cost = 150
-        elif claim_type == 'General Physician':
+        elif claim_type == "General Physician":
             base_cost = 80
-        elif claim_type == 'Physiotherapy':
+        elif claim_type == "Physiotherapy":
             base_cost = 120
         else:
             base_cost = 50
@@ -30,22 +29,38 @@ def make_claims() -> pd.DataFrame:
         return round(cost, 2)
 
     # Generating sample data
-    claim_types = ['Dentist', 'Psychiatrist', 'General Physician', 'Physiotherapy']
+    claim_types = ["Dentist", "Psychiatrist", "General Physician", "Physiotherapy"]
     years = [2021, 2022, 2023]
-    people = ['John', 'Jane', 'Michael', 'Emily', 'William', 'Emma', 'Daniel', 'Olivia', 'Lucas', 'Ava']
+    people = [
+        "John",
+        "Jane",
+        "Michael",
+        "Emily",
+        "William",
+        "Emma",
+        "Daniel",
+        "Olivia",
+        "Lucas",
+        "Ava",
+    ]
 
     data = []
     for year in years:
         for person in people:
-            num_claims = random.randint(1, 5)  # Random number of claims per person per year
+            num_claims = random.randint(
+                1, 5
+            )  # Random number of claims per person per year
             for _ in range(num_claims):
                 claim_type = random.choice(claim_types)
                 cost = generate_claim_cost(claim_type, year)
-                date = pd.to_datetime(f"{random.randint(1, 12)}/{random.randint(1, 28)}/{year}", format='%m/%d/%Y')
+                date = pd.to_datetime(
+                    f"{random.randint(1, 12)}/{random.randint(1, 28)}/{year}",
+                    format="%m/%d/%Y",
+                )
                 data.append([person, claim_type, date, year, cost])
 
     # Create the DataFrame
-    columns = ['person', 'claim_type', 'date', 'year', 'amount']
+    columns = ["person", "claim_type", "date", "year", "amount"]
     claims = pd.DataFrame(data, columns=columns)
 
     return claims
