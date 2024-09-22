@@ -77,3 +77,7 @@ Here's how to interpret this explanation:
 - From 2019 to 2020, the revenue growth was entirely due to an increase in the revenue per booking. The number of bookings was exactly the same. Therefore, the $20,000 is entirely due to the inner effect (increase in revenue per booking).
 - From 2020 to 2021, the revenue growth was entirely due to an increase in the number of bookings. The revenue per booking was exactly the same. Therefore, the $110,000 is entirely due to the mix effect (increase in bookings).
 - From 2021 to 2022, there was a $52,500 revenue growth. However, the revenue per booking went down by $10, so the increase is due to the higher number of bookings. The inner effect is -$7,500 while the mix effect is $45,000.
+
+<div>
+    <img src="https://github.com/user-attachments/assets/d93a8b33-929f-4895-87c8-1b60c8d3bb2f" alt="example" width="70%"/>
+</div>
