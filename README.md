@@ -1,8 +1,10 @@
 # icanexplain ~ explain why metrics change
 
-This library
+This library is here to help with the difficult task of explaining why a metric changes. It's particularly useful for analysts, data scientists, analytics engineers, and business intelligence professionals who need to understand the drivers of a metric's change.
 
-Let's say you're an analyst at an Airbnb-like company, and you're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
+This README provides a small introduction. For more information, please refer to the [documentation](https://carbonfact.github.io/icanexplain).
+
+Let's say you're an analyst at an Airbnb-like company. You're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
 
 ```py
 >>> import locale
@@ -77,6 +79,8 @@ Here's how to interpret this explanation:
 - From 2019 to 2020, the revenue growth was entirely due to an increase in the revenue per booking. The number of bookings was exactly the same. Therefore, the $20,000 is entirely due to the inner effect (increase in revenue per booking).
 - From 2020 to 2021, the revenue growth was entirely due to an increase in the number of bookings. The revenue per booking was exactly the same. Therefore, the $110,000 is entirely due to the mix effect (increase in bookings).
 - From 2021 to 2022, there was a $52,500 revenue growth. However, the revenue per booking went down by $10, so the increase is due to the higher number of bookings. The inner effect is -$7,500 while the mix effect is $45,000.
+
+Here's a visual representation of this last interpretation:
 
 <div>
     <img src="https://github.com/user-attachments/assets/d93a8b33-929f-4895-87c8-1b60c8d3bb2f" alt="example" width="70%"/>
