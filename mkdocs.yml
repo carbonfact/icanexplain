@@ -1,4 +1,6 @@
 site_name: icanexplain
+repo_name: carbonfact/icanexplain
+repo_url: https://github.com/carbonfact/icanexplain
 
 nav:
   - Introduction:
