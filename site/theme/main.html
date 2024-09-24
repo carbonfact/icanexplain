@@ -1,0 +1,489 @@
+{#
+Kilsbergen -- A clean MkDocs theme.
+Copyright 2019 Ruud van Asseldonk.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+A copy of the License has been included in the root of the repository.
+#}
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    Kilsbergen MkDocs theme copyright 2019 Ruud van Asseldonk.
+    Licensed under the Apache 2.0 license.
+    See https://github.com/ruuda/kilsbergen.
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ config.site_name }}</title>
+  <!-- Out of the options of rsms.me + Google Fonts, self-hosting, and only
+    Google Fonts, the latter is by far the fastest when the docs themselves are
+    not on a CDN, even though it's two additional domains to connect to. -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="{{ page.canonical_url }}" rel="canonical">
+  <style>
+  /* Inter font family, copyright Rasmus Andersson, licensed under SIL OFL 1.1,
+     see https://rsms.me/inter and https://rsms.me/inter/inter.css. */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://rsms.me/inter/font-files/InterVariable.woff2?v=4.0') format('woff2');
+    font-named-instance: 'Regular';
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://rsms.me/inter/font-files/InterVariable-Italic.woff2?v=4.0') format('woff2');
+    font-named-instance: 'Italic';
+  }
+  /* Modular scale with exponent 1.7^(1/3). The 1.7 was chosen as the line hight
+     that goes well with Inter. Previously I used 1.59, but it was just too tight.
+     0.59em
+     0.70em
+     1.00em
+     1.19em
+     1.42em
+     1.70em
+     2.02em
+     2.42em
+  */
+  * { margin: 0; padding: 0; border-spacing: 0; }
+  html {
+    font-family: Inter, Roboto, sans-serif;
+    /* Inter 4.0 is a tad heavy by default, make it a bit thinner. */
+    font-weight: 375;
+    font-size: 16px;
+    line-height: 1.7em;
+    background-color: #fff;
+    height: 100%;
+  }
+  em {
+    font-style: italic;
+  }
+  body {
+    height: 100%;
+    /*
+    Turn on character variant 8 for Inter, which puts serifs on the uppercase I.
+    Also turn on variant 1, which has a curved 1.
+    Also enable contextual alternates.
+    */
+    font-feature-settings: 'cv01' 1, 'cv08' 1, 'calt' 1;
+  }
+  #content {
+    display: grid;
+    grid-template-columns: auto 16rem 50rem auto;
+    color: #333;
+    min-height: 100%;
+  }
+  #main {
+    grid-area: 1 / 3 / 2 / 4;
+    padding: 2.2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    overflow: hidden;
+  }
+  #breadcrumbs {
+    margin-bottom: 3rem;
+    word-spacing: 0.3em;
+    color: #78a;
+  }
+  #breadcrumbs a {
+    word-spacing: 0;
+    color: #78a;
+  }
+  article {
+    margin-top: 1.3rem;
+  }
+  h1, h2, h3 {
+    font-weight: 625;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2.1rem;
+    line-height: 2.42rem;
+    margin-top: -0.35rem;
+    margin-bottom: 1.75rem;
+  }
+  h2 {
+    font-size: 1.42rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.6rem;
+  }
+  .headerlink {
+    position: absolute;
+    left: -0.9em;
+    width: 1em;
+    opacity: 0.0;
+    transition: opacity 0.2s ease-in;
+  }
+  /* Don't show the link for h1, usually you only have a single h1 at the top
+     of the page, so it doesn't make much sense to add an anchor there, and with
+     the larger font size, it doesn't fit in a narrow viewport. */
+  h2:hover .headerlink, h3:hover .headerlink {
+    opacity: 1.0;
+  }
+  code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.84rem;
+    line-height: 1.5rem;
+  }
+  h3 > code {
+    /* Roboto Mono 500 is about as heavy as Inter semibold (600). */
+    font-weight: 500;
+  }
+  abbr {
+    text-transform: uppercase;
+    /* Downsize so caps are x-height, and compensate weight loss. */
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    /* Prevent abbrs from changing the line height of lines in which they occur. */
+    line-height: 0;
+  }
+  sub, sup {
+    /* Don't disturb the line height of normal text. */
+    line-height: 0rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  p > code,
+  a > code,
+  h3 > code,
+  li > code,
+  td > code,
+  dt > code,
+  dd > code {
+    background-color: #f0f0f0;
+    padding: 0.13rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    border-radius: 0.2rem;
+    line-height: 1rem;
+  }
+  h3 {
+    padding-top: 0.9rem;
+    padding-bottom: 0.8rem;
+  }
+  h3 > code {
+    margin-left: -0.1rem;
+  }
+  a {
+    color: #36d;
+    text-decoration: none;
+  }
+  p, ul, ol, dl, pre, table {
+    /* Same space as line height, leave exactly one line blank. */
+    margin-bottom: 1.7rem;
+  }
+  pre {
+    padding-top: 0.8rem;
+    padding-bottom: 0.9rem;
+    padding-left: 1.19rem;
+    padding-right: 0;
+    background-color: #f8f8f8;
+    border-radius: 0 0.2rem 0.2rem 0;
+    border-left: 0.3rem solid #d5d8e0;
+    overflow-x: auto;
+  }
+  pre > code {
+    margin-right: 1.41rem;
+    color: #555;
+  }
+  code .k { color: #36d; font-weight: 500; }
+  code .kt, code .kt { color: #36d; }
+  code .c, code .c1, code .cm { color: #888; font-style: italic; }
+  code .m { color: #599; }
+  code .s { color: #a44; }
+  code .si { color: #a44; font-weight: 500; }
+  code .se { color: #359; }
+  ul, ol {
+    list-style-type: none;
+    counter-reset: item;
+  }
+  blockquote {
+      border-left: 0.3em solid #d5d8e0;
+      padding-left: 1.3em;
+      color: #78a;
+  }
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+  th, td {
+    padding-right: 2rem;
+  }
+  th {
+    text-align: left;
+  }
+  td > img {
+    display: block;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 2em;
+  }
+  dl dt {
+    text-align: right;
+  }
+  #main ul li:before {
+    color: #555;
+    content: '\2022';
+    display: inline-block;
+    font-weight: 700;
+    margin-left: -0.9rem;
+    width: 0.9rem;
+  }
+  #main ul li {
+    margin-left: 0.87rem;
+  }
+  #main ol li:before {
+    float: left;
+    content: counter(item);
+    display: inline-block;
+    font-weight: 700;
+    width: 0.8rem;
+    margin-left: -1.6rem;
+    padding-right: 0.8rem;
+  }
+  #main ol li {
+    margin-left: 1.6rem;
+    counter-increment: item;
+  }
+  a.footnote-ref {
+      // Add some space to make notes better clickable.
+      padding-left: 1pt;
+      padding-right: 1pt;
+  }
+  .footnote {
+      color: #777;
+      font-size: 0.9rem;
+      line-height: 1.7em;
+  }
+  .footnote hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+  }
+  #main .footnote ol li:before {
+      font-weight: 500;
+      color: #78a;
+      opacity: 0.5;
+  }
+  #nav-prev-next {
+    margin-top: 3.4rem;
+    padding-bottom: 3.3rem;
+  }
+  #nav-prev, #nav-next, #repo-link {
+    display: inline-block;
+  }
+  #nav-prev {
+    float: left;
+  }
+  #nav-next, #repo-link {
+    float: right;
+    text-align: right;
+  }
+  #nav-prev::before {
+    content: '\219e';
+    padding-right: 0.5em;
+  }
+  #nav-next::after {
+    content: '\21a0';
+    padding-left: 0.5em;
+  }
+  aside {
+    grid-area: 1 / 1 / 2 / 3;
+    border-right: 1px solid #eee;
+    background-color: #fafafa;
+    color: #78a;
+  }
+  aside nav {
+    margin-top: 9rem;
+    padding-bottom: 3.4rem;
+    width: 14rem;
+    float: right;
+    /* Put the active chapter border over the sidebar border. */
+    margin-right: -1px;
+  }
+  aside a {
+    color: inherit;
+  }
+  aside .toc-section {
+    font-weight: 700;
+  }
+  aside ul {
+    margin-bottom: 0;
+  }
+  aside li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  aside li ul {
+    padding-top: 0.6rem;
+    padding-bottom: 1.1rem;
+  }
+  aside li.toc-section {
+    margin-top: 1.7rem;
+  }
+  aside li.toc-section {
+    color: #36d;
+  }
+  aside li.current, aside li ul {
+    border-right: 0.3em solid #d5d8e0;
+    padding-left: 1em;
+    margin-left: -1em;
+  }
+  aside li.toc-chapter.current {
+    font-weight: 600;
+  }
+  aside li.toc-heading {
+    padding-left: 1em;
+    padding-right: 0.3em;
+  }
+
+  @media(max-width: 63rem)
+  {
+    #content {
+      /* Manual implementation of max-width: on narrower viewports,
+         auto-size the body. */
+      grid-template-columns: 0 16rem auto 0;
+    }
+  }
+
+  @media(max-width: 1150px)
+  {
+    html { font-size: 15px; }
+  }
+
+  /* Move the sidebar TOC below content at small widths. */
+  @media(max-width: 800px)
+  {
+    #content {
+      display: block;
+    }
+    aside {
+      border-top: 1px solid #eee;
+      border-right: 0px none;
+      padding-top: 1.7em;
+    }
+    aside nav {
+      margin-left: 4em;
+      margin-top: 1.7em;
+      margin-right: 0;
+      float: none;
+      width: auto;
+    }
+    #main {
+      padding-bottom: 1.7em;
+    }
+    /* Now that the TOC is full-width, adding the border on the right to
+       highlight the active page is not as clear anymore, it can be far away.
+       The current chapter is still in boldface, but that does not work for
+       section indexes. So point a guillemet at it as well. */
+    aside li.current, aside li ul {
+      border-right: 0px none;
+      position: relative;
+    }
+    aside li.current:before {
+      content: '\203a';
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  /* Use less generous margins for very narrow viewports. */
+  @media(max-width: 650px)
+  {
+    #main {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    aside nav {
+      margin-left: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media(max-width: 450px)
+  {
+    #main {
+      padding-left: 1.7em;
+      padding-right: 1.7em;
+    }
+    aside nav {
+      margin-left: 1.7em;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <div id="main">
+      <nav id="breadcrumbs">
+        <a href="{{ config.site_url|url }}">{{ config.site_name }}</a>
+        {% if page.parent %} › <a href="{{ page.parent.children[0].url|url }}">{{ page.parent.title }}</a> {% endif %}
+        {% if not page.is_index or not page.parent %} › <a href="{{ page.url|url }}">{{ page.title }}</a> {% endif %}
+        <a id="repo-link" href="{{ config.repo_url|url }}">GitHub</a>
+      </nav>
+      <article>
+        {{ page.content }}
+      </article>
+      {% if page.next_page or page.previous_page -%}
+      <nav id="nav-prev-next">
+        {% if page.previous_page -%}
+          <a id="nav-prev" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}">Previous</a>
+        {% endif -%}
+        {% if page.next_page -%}
+          <a id="nav-next" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}">Next</a>
+        {% endif -%}
+      </nav>
+      {% endif -%}
+    </div>
+    <aside>
+      <nav>
+        <ul>
+        {% for section in nav -%}
+          {% if section.children -%}
+          <li class="toc-section
+            {% if section.active and page.is_index %} current{% endif -%}
+          "><a href="{{ section.children[0].url|url }}">{{ section.title }}</a></li>
+          {% for chapter in section.children -%}
+          {% if not chapter.is_index %}
+            <li class="toc-chapter
+              {% if chapter.active %} current{% endif -%}
+            "><a href="{{ chapter.url|url }}">{{ chapter.title }}</a></li>
+            {% if chapter.active -%}
+            {% for toc_item in page.toc -%}
+              {% if toc_item.children -%}
+                <li><ul>
+                {% for toc_item in toc_item.children -%}
+                  <li class="toc-heading"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                {% endfor -%}
+                </ul></li>
+               {% endif -%}
+            {% endfor -%}
+            {% endif -%}
+          {% endif -%}
+          {% endfor -%}
+          {% else -%}
+          <li class="toc-section"><a href="{{ section.url|url }}">{{ section.title }}</a></li>
+          {% endif -%}
+        {% endfor -%}
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</body>
+</html>

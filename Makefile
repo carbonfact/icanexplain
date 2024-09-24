@@ -10,3 +10,6 @@ render-notebooks:
 
 docs: execute-notebooks render-notebooks
 	poetry run mkdocs serve
+
+publish-docs: execute-notebooks render-notebooks
+	poetry run mkdocs gh-deploy

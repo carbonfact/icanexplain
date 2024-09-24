@@ -1,105 +1,159 @@
 # Iowa whiskey sales
 
+Let's look at whiskey sales in Iowa. This is a subset of the data from the [Iowa Liquor Sales dataset](https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy).
+
 
 ```python
 import icanexplain as ice
 
 sales = ice.datasets.load_iowa_whiskey_sales()
-sales.head()
+sales.head().style.format()
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_13ede">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>date</th>
-      <th>category</th>
-      <th>vendor</th>
-      <th>sales_amount</th>
-      <th>price_per_bottle</th>
-      <th>bottles_sold</th>
-      <th>bottle_volume_ml</th>
-      <th>year</th>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_13ede_level0_col0" class="col_heading level0 col0" >date</th>
+      <th id="T_13ede_level0_col1" class="col_heading level0 col1" >category</th>
+      <th id="T_13ede_level0_col2" class="col_heading level0 col2" >vendor</th>
+      <th id="T_13ede_level0_col3" class="col_heading level0 col3" >sales_amount</th>
+      <th id="T_13ede_level0_col4" class="col_heading level0 col4" >price_per_bottle</th>
+      <th id="T_13ede_level0_col5" class="col_heading level0 col5" >bottles_sold</th>
+      <th id="T_13ede_level0_col6" class="col_heading level0 col6" >bottle_volume_ml</th>
+      <th id="T_13ede_level0_col7" class="col_heading level0 col7" >year</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2012-06-04</td>
-      <td>CANADIAN WHISKIES</td>
-      <td>CONSTELLATION WINE COMPANY, INC.</td>
-      <td>94.02</td>
-      <td>15.67</td>
-      <td>6</td>
-      <td>1750</td>
-      <td>2012</td>
+      <th id="T_13ede_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_13ede_row0_col0" class="data row0 col0" >2012-06-04</td>
+      <td id="T_13ede_row0_col1" class="data row0 col1" >CANADIAN WHISKIES</td>
+      <td id="T_13ede_row0_col2" class="data row0 col2" >CONSTELLATION WINE COMPANY, INC.</td>
+      <td id="T_13ede_row0_col3" class="data row0 col3" >94.020000</td>
+      <td id="T_13ede_row0_col4" class="data row0 col4" >15.670000</td>
+      <td id="T_13ede_row0_col5" class="data row0 col5" >6</td>
+      <td id="T_13ede_row0_col6" class="data row0 col6" >1750</td>
+      <td id="T_13ede_row0_col7" class="data row0 col7" >2012</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2016-01-05</td>
-      <td>STRAIGHT BOURBON WHISKIES</td>
-      <td>CAMPARI(SKYY)</td>
-      <td>18.76</td>
-      <td>9.38</td>
-      <td>2</td>
-      <td>375</td>
-      <td>2016</td>
+      <th id="T_13ede_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_13ede_row1_col0" class="data row1 col0" >2016-01-05</td>
+      <td id="T_13ede_row1_col1" class="data row1 col1" >STRAIGHT BOURBON WHISKIES</td>
+      <td id="T_13ede_row1_col2" class="data row1 col2" >CAMPARI(SKYY)</td>
+      <td id="T_13ede_row1_col3" class="data row1 col3" >18.760000</td>
+      <td id="T_13ede_row1_col4" class="data row1 col4" >9.380000</td>
+      <td id="T_13ede_row1_col5" class="data row1 col5" >2</td>
+      <td id="T_13ede_row1_col6" class="data row1 col6" >375</td>
+      <td id="T_13ede_row1_col7" class="data row1 col7" >2016</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2016-05-25</td>
-      <td>CANADIAN WHISKIES</td>
-      <td>DIAGEO AMERICAS</td>
-      <td>11.03</td>
-      <td>11.03</td>
-      <td>1</td>
-      <td>300</td>
-      <td>2016</td>
+      <th id="T_13ede_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_13ede_row2_col0" class="data row2 col0" >2016-05-25</td>
+      <td id="T_13ede_row2_col1" class="data row2 col1" >CANADIAN WHISKIES</td>
+      <td id="T_13ede_row2_col2" class="data row2 col2" >DIAGEO AMERICAS</td>
+      <td id="T_13ede_row2_col3" class="data row2 col3" >11.030000</td>
+      <td id="T_13ede_row2_col4" class="data row2 col4" >11.030000</td>
+      <td id="T_13ede_row2_col5" class="data row2 col5" >1</td>
+      <td id="T_13ede_row2_col6" class="data row2 col6" >300</td>
+      <td id="T_13ede_row2_col7" class="data row2 col7" >2016</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>2016-01-20</td>
-      <td>CANADIAN WHISKIES</td>
-      <td>PHILLIPS BEVERAGE COMPANY</td>
-      <td>33.84</td>
-      <td>11.28</td>
-      <td>3</td>
-      <td>750</td>
-      <td>2016</td>
+      <th id="T_13ede_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_13ede_row3_col0" class="data row3 col0" >2016-01-20</td>
+      <td id="T_13ede_row3_col1" class="data row3 col1" >CANADIAN WHISKIES</td>
+      <td id="T_13ede_row3_col2" class="data row3 col2" >PHILLIPS BEVERAGE COMPANY</td>
+      <td id="T_13ede_row3_col3" class="data row3 col3" >33.840000</td>
+      <td id="T_13ede_row3_col4" class="data row3 col4" >11.280000</td>
+      <td id="T_13ede_row3_col5" class="data row3 col5" >3</td>
+      <td id="T_13ede_row3_col6" class="data row3 col6" >750</td>
+      <td id="T_13ede_row3_col7" class="data row3 col7" >2016</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>2012-03-19</td>
-      <td>CANADIAN WHISKIES</td>
-      <td>CONSTELLATION WINE COMPANY, INC.</td>
-      <td>94.02</td>
-      <td>15.67</td>
-      <td>6</td>
-      <td>1750</td>
-      <td>2012</td>
+      <th id="T_13ede_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_13ede_row4_col0" class="data row4 col0" >2012-03-19</td>
+      <td id="T_13ede_row4_col1" class="data row4 col1" >CANADIAN WHISKIES</td>
+      <td id="T_13ede_row4_col2" class="data row4 col2" >CONSTELLATION WINE COMPANY, INC.</td>
+      <td id="T_13ede_row4_col3" class="data row4 col3" >94.020000</td>
+      <td id="T_13ede_row4_col4" class="data row4 col4" >15.670000</td>
+      <td id="T_13ede_row4_col5" class="data row4 col5" >6</td>
+      <td id="T_13ede_row4_col6" class="data row4 col6" >1750</td>
+      <td id="T_13ede_row4_col7" class="data row4 col7" >2012</td>
     </tr>
   </tbody>
 </table>
-</div>
 
 
+
+
+The `sales_amount` column represents the bill a customer payed for a given transaction. We can sum it and group by year to see how the total sales amount evolves over time.
+
+
+```python
+import locale
+
+locale.setlocale(locale.LC_MONETARY, 'en_US.UTF-8')
+def fmt_currency(x):
+    return locale.currency(x, grouping=True)
+
+(
+    sales.groupby('year')['sales_amount']
+    .sum()
+    .to_frame()
+    .assign(diff=lambda x: x.diff())
+    .style.format(lambda x: fmt_currency(x) if x > 0 else '')
+)
+```
+
+
+
+
+<style type="text/css">
+</style>
+<table id="T_cd574">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_cd574_level0_col0" class="col_heading level0 col0" >sales_amount</th>
+      <th id="T_cd574_level0_col1" class="col_heading level0 col1" >diff</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >year</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_cd574_level0_row0" class="row_heading level0 row0" >2012</th>
+      <td id="T_cd574_row0_col0" class="data row0 col0" >$1,842,098.86</td>
+      <td id="T_cd574_row0_col1" class="data row0 col1" ></td>
+    </tr>
+    <tr>
+      <th id="T_cd574_level0_row1" class="row_heading level0 row1" >2016</th>
+      <td id="T_cd574_row1_col0" class="data row1 col0" >$2,298,505.88</td>
+      <td id="T_cd574_row1_col1" class="data row1 col1" >$456,407.02</td>
+    </tr>
+    <tr>
+      <th id="T_cd574_level0_row2" class="row_heading level0 row2" >2020</th>
+      <td id="T_cd574_row2_col0" class="data row2 col0" >$3,378,164.43</td>
+      <td id="T_cd574_row2_col1" class="data row2 col1" >$1,079,658.55</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+Ok, but why? Well, we can use icanexplain to break down the evolution into two effects:
+
+1. The inner effect: how much the average transaction value changed.
+2. The mix effect: how much the number of transations changed.
 
 
 ```python
@@ -111,129 +165,130 @@ explainer = ice.SumExplainer(
     group='category'
 )
 explanation = explainer(sales)
-explanation
+(
+    explanation.style
+    .format(lambda x: fmt_currency(x) if x > 0 else '$0')
+    .set_properties(**{'text-align': 'right'})
+)
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<style type="text/css">
+#T_1b403_row0_col0, #T_1b403_row0_col1, #T_1b403_row1_col0, #T_1b403_row1_col1, #T_1b403_row2_col0, #T_1b403_row2_col1, #T_1b403_row3_col0, #T_1b403_row3_col1, #T_1b403_row4_col0, #T_1b403_row4_col1, #T_1b403_row5_col0, #T_1b403_row5_col1, #T_1b403_row6_col0, #T_1b403_row6_col1, #T_1b403_row7_col0, #T_1b403_row7_col1, #T_1b403_row8_col0, #T_1b403_row8_col1, #T_1b403_row9_col0, #T_1b403_row9_col1, #T_1b403_row10_col0, #T_1b403_row10_col1, #T_1b403_row11_col0, #T_1b403_row11_col1, #T_1b403_row12_col0, #T_1b403_row12_col1, #T_1b403_row13_col0, #T_1b403_row13_col1, #T_1b403_row14_col0, #T_1b403_row14_col1, #T_1b403_row15_col0, #T_1b403_row15_col1 {
+  text-align: right;
+}
 </style>
-<table border="1" class="dataframe">
+<table id="T_1b403">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>inner</th>
-      <th>mix</th>
+    <tr>
+      <th class="blank" >&nbsp;</th>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_1b403_level0_col0" class="col_heading level0 col0" >inner</th>
+      <th id="T_1b403_level0_col1" class="col_heading level0 col1" >mix</th>
     </tr>
     <tr>
-      <th>year</th>
-      <th>category</th>
-      <th></th>
-      <th></th>
+      <th class="index_name level0" >year</th>
+      <th class="index_name level1" >category</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="8" valign="top">2016</th>
-      <th>BLENDED WHISKIES</th>
-      <td>17854.426840</td>
-      <td>7356.773160</td>
+      <th id="T_1b403_level0_row0" class="row_heading level0 row0" rowspan="8">2016</th>
+      <th id="T_1b403_level1_row0" class="row_heading level1 row0" >BLENDED WHISKIES</th>
+      <td id="T_1b403_row0_col0" class="data row0 col0" >$17,854.43</td>
+      <td id="T_1b403_row0_col1" class="data row0 col1" >$7,356.77</td>
     </tr>
     <tr>
-      <th>CANADIAN WHISKIES</th>
-      <td>-22278.517726</td>
-      <td>225902.657726</td>
+      <th id="T_1b403_level1_row1" class="row_heading level1 row1" >CANADIAN WHISKIES</th>
+      <td id="T_1b403_row1_col0" class="data row1 col0" >$0</td>
+      <td id="T_1b403_row1_col1" class="data row1 col1" >$225,902.66</td>
     </tr>
     <tr>
-      <th>CORN WHISKIES</th>
-      <td>0.000000</td>
-      <td>4113.900000</td>
+      <th id="T_1b403_level1_row2" class="row_heading level1 row2" >CORN WHISKIES</th>
+      <td id="T_1b403_row2_col0" class="data row2 col0" >$0</td>
+      <td id="T_1b403_row2_col1" class="data row2 col1" >$4,113.90</td>
     </tr>
     <tr>
-      <th>IRISH WHISKIES</th>
-      <td>22144.484766</td>
-      <td>75122.825234</td>
+      <th id="T_1b403_level1_row3" class="row_heading level1 row3" >IRISH WHISKIES</th>
+      <td id="T_1b403_row3_col0" class="data row3 col0" >$22,144.48</td>
+      <td id="T_1b403_row3_col1" class="data row3 col1" >$75,122.83</td>
     </tr>
     <tr>
-      <th>SCOTCH WHISKIES</th>
-      <td>19591.969612</td>
-      <td>-13570.609612</td>
+      <th id="T_1b403_level1_row4" class="row_heading level1 row4" >SCOTCH WHISKIES</th>
+      <td id="T_1b403_row4_col0" class="data row4 col0" >$19,591.97</td>
+      <td id="T_1b403_row4_col1" class="data row4 col1" >$0</td>
     </tr>
     <tr>
-      <th>SINGLE BARREL BOURBON WHISKIES</th>
-      <td>1852.032816</td>
-      <td>6375.427184</td>
+      <th id="T_1b403_level1_row5" class="row_heading level1 row5" >SINGLE BARREL BOURBON WHISKIES</th>
+      <td id="T_1b403_row5_col0" class="data row5 col0" >$1,852.03</td>
+      <td id="T_1b403_row5_col1" class="data row5 col1" >$6,375.43</td>
     </tr>
     <tr>
-      <th>STRAIGHT BOURBON WHISKIES</th>
-      <td>107144.930127</td>
-      <td>97934.499873</td>
+      <th id="T_1b403_level1_row6" class="row_heading level1 row6" >STRAIGHT BOURBON WHISKIES</th>
+      <td id="T_1b403_row6_col0" class="data row6 col0" >$107,144.93</td>
+      <td id="T_1b403_row6_col1" class="data row6 col1" >$97,934.50</td>
     </tr>
     <tr>
-      <th>STRAIGHT RYE WHISKIES</th>
-      <td>-23929.320351</td>
-      <td>-69208.459649</td>
+      <th id="T_1b403_level1_row7" class="row_heading level1 row7" >STRAIGHT RYE WHISKIES</th>
+      <td id="T_1b403_row7_col0" class="data row7 col0" >$0</td>
+      <td id="T_1b403_row7_col1" class="data row7 col1" >$0</td>
     </tr>
     <tr>
-      <th rowspan="8" valign="top">2020</th>
-      <th>BLENDED WHISKIES</th>
-      <td>83342.597187</td>
-      <td>59768.582813</td>
+      <th id="T_1b403_level0_row8" class="row_heading level0 row8" rowspan="8">2020</th>
+      <th id="T_1b403_level1_row8" class="row_heading level1 row8" >BLENDED WHISKIES</th>
+      <td id="T_1b403_row8_col0" class="data row8 col0" >$83,342.60</td>
+      <td id="T_1b403_row8_col1" class="data row8 col1" >$59,768.58</td>
     </tr>
     <tr>
-      <th>CANADIAN WHISKIES</th>
-      <td>224022.616060</td>
-      <td>149363.353940</td>
+      <th id="T_1b403_level1_row9" class="row_heading level1 row9" >CANADIAN WHISKIES</th>
+      <td id="T_1b403_row9_col0" class="data row9 col0" >$224,022.62</td>
+      <td id="T_1b403_row9_col1" class="data row9 col1" >$149,363.35</td>
     </tr>
     <tr>
-      <th>CORN WHISKIES</th>
-      <td>1517.480513</td>
-      <td>1453.259487</td>
+      <th id="T_1b403_level1_row10" class="row_heading level1 row10" >CORN WHISKIES</th>
+      <td id="T_1b403_row10_col0" class="data row10 col0" >$1,517.48</td>
+      <td id="T_1b403_row10_col1" class="data row10 col1" >$1,453.26</td>
     </tr>
     <tr>
-      <th>IRISH WHISKIES</th>
-      <td>-14048.436797</td>
-      <td>67344.406797</td>
+      <th id="T_1b403_level1_row11" class="row_heading level1 row11" >IRISH WHISKIES</th>
+      <td id="T_1b403_row11_col0" class="data row11 col0" >$0</td>
+      <td id="T_1b403_row11_col1" class="data row11 col1" >$67,344.41</td>
     </tr>
     <tr>
-      <th>SCOTCH WHISKIES</th>
-      <td>19840.477504</td>
-      <td>-18869.917504</td>
+      <th id="T_1b403_level1_row12" class="row_heading level1 row12" >SCOTCH WHISKIES</th>
+      <td id="T_1b403_row12_col0" class="data row12 col0" >$19,840.48</td>
+      <td id="T_1b403_row12_col1" class="data row12 col1" >$0</td>
     </tr>
     <tr>
-      <th>SINGLE BARREL BOURBON WHISKIES</th>
-      <td>11958.317395</td>
-      <td>3819.272605</td>
+      <th id="T_1b403_level1_row13" class="row_heading level1 row13" >SINGLE BARREL BOURBON WHISKIES</th>
+      <td id="T_1b403_row13_col0" class="data row13 col0" >$11,958.32</td>
+      <td id="T_1b403_row13_col1" class="data row13 col1" >$3,819.27</td>
     </tr>
     <tr>
-      <th>STRAIGHT BOURBON WHISKIES</th>
-      <td>167864.459707</td>
-      <td>268064.740293</td>
+      <th id="T_1b403_level1_row14" class="row_heading level1 row14" >STRAIGHT BOURBON WHISKIES</th>
+      <td id="T_1b403_row14_col0" class="data row14 col0" >$167,864.46</td>
+      <td id="T_1b403_row14_col1" class="data row14 col1" >$268,064.74</td>
     </tr>
     <tr>
-      <th>STRAIGHT RYE WHISKIES</th>
-      <td>-9839.091595</td>
-      <td>64056.431595</td>
+      <th id="T_1b403_level1_row15" class="row_heading level1 row15" >STRAIGHT RYE WHISKIES</th>
+      <td id="T_1b403_row15_col0" class="data row15 col0" >$0</td>
+      <td id="T_1b403_row15_col1" class="data row15 col1" >$64,056.43</td>
     </tr>
   </tbody>
 </table>
-</div>
 
 
+
+
+For instance, we see that the average transation amount for blended whiskies contributed to an $17,854 increase in sales from 2012 to 2016. This is the inner effect. The mix effect for blended whiskies, on the other hand, contributed to a $7,356 increase in sales.
+
+Here's another example: the mix effect of Canadian whiskies is $225,902. This value, the mix effect, represents the increase due to the number of extra sales for Canadian whiskies. The inner effect, on the other hand, is $0. This means that the average transaction value for Canadian whiskies did not change between 2012 and 2016, and therefore didn't contribute to the increase in sales.
+
+A visual way to look interpret the above table is to use a waterfall chart. The idea is that the contributions sum to the difference between two periods. In this case, the difference in sales from 2012 to 2016 is $456,407. The waterfall chart shows how the inner and mix effects contributed to this difference.
 
 
 ```python
@@ -245,23 +300,23 @@ explainer.plot(sales)
 
 
 <style>
-  #altair-viz-09d92760f1bc4952881e3156ea4e9c81.vega-embed {
+  #altair-viz-d41ef96cb7204817bd9f6ddd59db67d3.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-09d92760f1bc4952881e3156ea4e9c81.vega-embed details,
-  #altair-viz-09d92760f1bc4952881e3156ea4e9c81.vega-embed details summary {
+  #altair-viz-d41ef96cb7204817bd9f6ddd59db67d3.vega-embed details,
+  #altair-viz-d41ef96cb7204817bd9f6ddd59db67d3.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-09d92760f1bc4952881e3156ea4e9c81"></div>
+<div id="altair-viz-d41ef96cb7204817bd9f6ddd59db67d3"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-09d92760f1bc4952881e3156ea4e9c81") {
-      outputDiv = document.getElementById("altair-viz-09d92760f1bc4952881e3156ea4e9c81");
+    if (outputDiv.id !== "altair-viz-d41ef96cb7204817bd9f6ddd59db67d3") {
+      outputDiv = document.getElementById("altair-viz-d41ef96cb7204817bd9f6ddd59db67d3");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -311,5 +366,3 @@ explainer.plot(sales)
 </script>
 
 
-
-Funnel decomposition to break down the amount in dollars into bottles sold times by the price per bottle.

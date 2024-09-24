@@ -1,5 +1,7 @@
 # Different backend support with Ibis
 
+icanexplain is implemented with [Ibis](https://github.com/ibis-project/ibis). This means that it is framework agnostic, and can work with different backends. This example shows how to use it with [DuckDB](https://duckdb.org/).
+
 
 ```python
 import ibis
@@ -15,7 +17,7 @@ con.create_table(
 
 
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">DatabaseTable: products
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">DatabaseTable: example.main.products
   year       int64
   category   string
   product_id string
@@ -250,52 +252,44 @@ SELECT
   *
 FROM (
   SELECT
-    "t11"."year",
-    "t11"."category",
-    "t11"."count_lag" * (
-      "t11"."mean" - "t11"."mean_lag"
+    "t9"."year",
+    "t9"."category",
+    "t9"."count_lag" * (
+      "t9"."mean" - "t9"."mean_lag"
     ) AS "inner",
     (
-      "t11"."count" - "t11"."count_lag"
-    ) * "t11"."mean" AS "mix"
+      "t9"."count" - "t9"."count_lag"
+    ) * "t9"."mean" AS "mix"
   FROM (
     SELECT
-      "t10"."category",
-      "t10"."year",
-      "t10"."mean",
-      "t10"."count",
-      LAG("t10"."mean", CAST(1 AS TINYINT)) OVER (PARTITION BY "t10"."category" ORDER BY "t10"."year" ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS "mean_lag",
-      LAG("t10"."count", CAST(1 AS TINYINT)) OVER (PARTITION BY "t10"."category" ORDER BY "t10"."year" ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS "count_lag"
+      "t8"."category",
+      "t8"."year",
+      "t8"."mean",
+      "t8"."count",
+      LAG("t8"."mean", 1) OVER (PARTITION BY "t8"."category" ORDER BY "t8"."year" ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS "mean_lag",
+      LAG("t8"."count", 1) OVER (PARTITION BY "t8"."category" ORDER BY "t8"."year" ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS "count_lag"
     FROM (
       SELECT
-        "t9"."category",
-        "t9"."year",
-        COALESCE("t9"."mean", CAST(0 AS TINYINT)) AS "mean",
-        COALESCE("t9"."count", CAST(0 AS TINYINT)) AS "count"
+        "t7"."category",
+        "t7"."year",
+        COALESCE("t7"."mean", 0) AS "mean",
+        COALESCE("t7"."count", 0) AS "count"
       FROM (
         SELECT
-          "t5"."category",
-          "t6"."year",
-          "t8"."mean",
-          "t8"."count"
+          "t3"."category",
+          "t4"."year",
+          "t6"."mean",
+          "t6"."count"
         FROM (
           SELECT DISTINCT
-            *
-          FROM (
-            SELECT
-              "t0"."category"
-            FROM "products" AS "t0"
-          ) AS "t1"
-        ) AS "t5"
+            "t0"."category"
+          FROM "products" AS "t0"
+        ) AS "t3"
         CROSS JOIN (
           SELECT DISTINCT
-            *
-          FROM (
-            SELECT
-              "t0"."year"
-            FROM "products" AS "t0"
-          ) AS "t2"
-        ) AS "t6"
+            "t0"."year"
+          FROM "products" AS "t0"
+        ) AS "t4"
         LEFT OUTER JOIN (
           SELECT
             "t0"."category",
@@ -306,23 +300,20 @@ FROM (
           GROUP BY
             1,
             2
-        ) AS "t8"
-          ON "t5"."category" = "t8"."category" AND "t6"."year" = "t8"."year"
-      ) AS "t9"
-    ) AS "t10"
-  ) AS "t11"
+        ) AS "t6"
+          ON "t3"."category" = "t6"."category" AND "t4"."year" = "t6"."year"
+      ) AS "t7"
+    ) AS "t8"
+  ) AS "t9"
   ORDER BY
-    "t11"."year" ASC,
-    "t11"."category" ASC
-) AS "t12"
+    "t9"."year" ASC,
+    "t9"."category" ASC
+) AS "t10"
 WHERE
-  (
-    (
-      NOT "t12"."year" IS NULL AND NOT "t12"."category" IS NULL
-    )
-    AND NOT "t12"."inner" IS NULL
-  )
-  AND NOT "t12"."mix" IS NULL
+  "t10"."year" IS NOT NULL
+  AND "t10"."category" IS NOT NULL
+  AND "t10"."inner" IS NOT NULL
+  AND "t10"."mix" IS NOT NULL
 ```
 
 

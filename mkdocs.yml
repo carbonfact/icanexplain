@@ -24,15 +24,6 @@ theme:
   icon:
     logo: material/chart-tree
 
-extra_css:
-  - style.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
-
-extra_javascript:
-  - javascripts/katex.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
