@@ -198,7 +198,8 @@ class SumExplainer(Unpacker):
         cart = cartesian_product(table, [*self.group, *self.period])
         explanation = cart.left_join(explanation, cart.columns)[explanation.columns]
         explanation = explanation.mutate(
-            mean=explanation["mean"].fill_null(0), count=explanation["count"].fill_null(0)
+            mean=explanation["mean"].fill_null(0),
+            count=explanation["count"].fill_null(0),
         )
 
         # Calculate lag values
@@ -271,9 +272,7 @@ class MeanExplainer(Unpacker):
             # https://ibis-project.org/reference/expression-generic#ibis.expr.types.generic.Value.nullif
             ratio=(explanation["sum"] / explanation["count"].nullif(0)).fill_null(0)
         )
-        explanation = explanation.mutate(
-            ratio=explanation["ratio"]
-        )
+        explanation = explanation.mutate(ratio=explanation["ratio"])
 
         yearly_figures = explanation.group_by(self.period).aggregate(
             sum_sum=explanation["sum"].sum(), count_sum=explanation["count"].sum()
