@@ -36,10 +36,8 @@ This README provides a small introduction. For more information, please refer to
 Let's say you're an analyst at an Airbnb-like company. You're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
 
 ```py
->>> import locale
 >>> import pandas as pd
->>> _ = locale.setlocale(locale.LC_ALL, 'en_US')
->>> fmt_currency = lambda x: '' if pd.isna(x) else locale.currency(x, grouping=True)[:-3]
+>>> fmt_currency = lambda x: '' if pd.isna(x) else '${:,.0f}'.format(x)
 
 >>> revenue = pd.DataFrame.from_dict([
 ...     {'year': 2019, 'bookings': 1_000, 'revenue_per_booking': 200},
