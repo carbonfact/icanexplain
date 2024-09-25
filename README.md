@@ -33,6 +33,8 @@ This library is here to help with the difficult task of explaining why a metric 
 
 This README provides a small introduction. For more information, please refer to the [documentation](https://carbonfact.github.io/icanexplain).
 
+Check out [this blog post](https://maxhalford.github.io/blog/kpi-evolution-decomposition/) for some in-depth explanation.
+
 ## Quickstart
 
 Let's say you're an analyst at an Airbnb-like company. You're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
