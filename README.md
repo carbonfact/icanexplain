@@ -33,6 +33,8 @@ This library is here to help with the difficult task of explaining why a metric 
 
 This README provides a small introduction. For more information, please refer to the [documentation](https://carbonfact.github.io/icanexplain).
 
+## Quickstart
+
 Let's say you're an analyst at an Airbnb-like company. You're tasked with analyzing year-over-year revenue growth. You have obtained the following dataset:
 
 ```py
@@ -82,7 +84,13 @@ year
 
 ```
 
-Growth can be due to two factors: an increase in the number of bookings, or an increase in the revenue per booking. The icanexplain library to decompose the growth into these two factors:
+Growth can be due to two factors: an increase in the number of bookings, or an increase in the revenue per booking. The icanexplain library to decompose the growth into these two factors. First, let's install the package:
+
+```sh
+pip install icanexplain
+```
+
+Then, we can use the `SumExplainer` to decompose the growth:
 
 ```py
 >>> import icanexplain as ice
@@ -109,6 +117,16 @@ Here's how to interpret this explanation:
 
 Here's a visual representation of this last interpretation:
 
-<div>
-    <img src="https://github.com/user-attachments/assets/19a10291-18d3-42aa-ad45-17af32f01e8f" alt="example" width="70%"/>
-</div>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/19a10291-18d3-42aa-ad45-17af32f01e8f" alt="example" width="70%"/>
+</p>
+
+## Contributing
+
+Feel free to reach out to [max@carbonfact.com](mailto:max@carbonfact.com) if you want to know more and/or contribute 🤗
+
+Check out the [contribution guidelines](CONTRIBUTING.md) to get started.
+
+## License
+
+icanexplain is free and open-source software licensed under the Apache License, Version 2.0.

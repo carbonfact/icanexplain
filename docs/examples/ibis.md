@@ -1,4 +1,4 @@
-# Different backend support with Ibis
+# Different backend support with Ibis 🐦
 
 icanexplain is implemented with [Ibis](https://github.com/ibis-project/ibis). This means that it is framework agnostic, and can work with different backends. This example shows how to use it with [DuckDB](https://duckdb.org/).
 
