@@ -18,7 +18,7 @@
     
     
       
-        <title>Different backend support with Ibis 🐦 - icanexplain</title>
+        <title>Different backend support with Ibis 🪽 - icanexplain</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Different backend support with Ibis 🐦
+              Different backend support with Ibis 🪽
             
           </span>
         </div>
@@ -474,7 +474,7 @@
         
   
   <span class="md-ellipsis">
-    Different backend support with Ibis 🐦
+    Different backend support with Ibis 🪽
   </span>
   
 
@@ -528,7 +528,7 @@
   
 
 
-<h1 id="different-backend-support-with-ibis">Different backend support with Ibis 🐦<a class="headerlink" href="#different-backend-support-with-ibis">&para;</a></h1>
+<h1 id="different-backend-support-with-ibis">Different backend support with Ibis 🪽<a class="headerlink" href="#different-backend-support-with-ibis">&para;</a></h1>
 <p>icanexplain is implemented with <a href="https://github.com/ibis-project/ibis">Ibis</a>. This means that it is framework agnostic, and can work with different backends. This example shows how to use it with <a href="https://duckdb.org/">DuckDB</a>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">ibis</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">icanexplain</span> <span class="k">as</span> <span class="nn">ice</span>
@@ -601,120 +601,107 @@
 </span></code></pre></div>
 <div class="language-text highlight"><pre><span></span><code>ibis.expr.types.relations.Table
 </code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">explanation</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">explanation</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
 </span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_5f07f">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>year</th>
-      <th>category</th>
-      <th>inner</th>
-      <th>mix</th>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_5f07f_level0_col0" class="col_heading level0 col0" >year</th>
+      <th id="T_5f07f_level0_col1" class="col_heading level0 col1" >category</th>
+      <th id="T_5f07f_level0_col2" class="col_heading level0 col2" >inner</th>
+      <th id="T_5f07f_level0_col3" class="col_heading level0 col3" >mix</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2022</td>
-      <td>DRESS</td>
-      <td>3.931932e+06</td>
-      <td>-1.881370e+07</td>
+      <th id="T_5f07f_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_5f07f_row0_col0" class="data row0 col0" >2022</td>
+      <td id="T_5f07f_row0_col1" class="data row0 col1" >DRESS</td>
+      <td id="T_5f07f_row0_col2" class="data row0 col2" >3931932.447552</td>
+      <td id="T_5f07f_row0_col3" class="data row0 col3" >-18813695.617552</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2022</td>
-      <td>JACKET</td>
-      <td>-1.510008e+07</td>
-      <td>-9.238617e+07</td>
+      <th id="T_5f07f_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_5f07f_row1_col0" class="data row1 col0" >2022</td>
+      <td id="T_5f07f_row1_col1" class="data row1 col1" >JACKET</td>
+      <td id="T_5f07f_row1_col2" class="data row1 col2" >-15100081.026506</td>
+      <td id="T_5f07f_row1_col3" class="data row1 col3" >-92386166.203493</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2022</td>
-      <td>PANTS</td>
-      <td>4.002506e+07</td>
-      <td>5.295190e+07</td>
+      <th id="T_5f07f_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_5f07f_row2_col0" class="data row2 col0" >2022</td>
+      <td id="T_5f07f_row2_col1" class="data row2 col1" >PANTS</td>
+      <td id="T_5f07f_row2_col2" class="data row2 col2" >40025058.515251</td>
+      <td id="T_5f07f_row2_col3" class="data row2 col3" >52951900.074743</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>2022</td>
-      <td>SHIRT</td>
-      <td>-1.484809e+06</td>
-      <td>-5.791456e+06</td>
+      <th id="T_5f07f_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_5f07f_row3_col0" class="data row3 col0" >2022</td>
+      <td id="T_5f07f_row3_col1" class="data row3 col1" >SHIRT</td>
+      <td id="T_5f07f_row3_col2" class="data row3 col2" >-1484809.008950</td>
+      <td id="T_5f07f_row3_col3" class="data row3 col3" >-5791455.871050</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>2022</td>
-      <td>SWEATER</td>
-      <td>-2.676209e+07</td>
-      <td>1.181504e+07</td>
+      <th id="T_5f07f_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_5f07f_row4_col0" class="data row4 col0" >2022</td>
+      <td id="T_5f07f_row4_col1" class="data row4 col1" >SWEATER</td>
+      <td id="T_5f07f_row4_col2" class="data row4 col2" >-26762091.196715</td>
+      <td id="T_5f07f_row4_col3" class="data row4 col3" >11815043.806715</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>2022</td>
-      <td>TSHIRT</td>
-      <td>6.650940e+06</td>
-      <td>-2.311836e+07</td>
+      <th id="T_5f07f_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_5f07f_row5_col0" class="data row5 col0" >2022</td>
+      <td id="T_5f07f_row5_col1" class="data row5 col1" >TSHIRT</td>
+      <td id="T_5f07f_row5_col2" class="data row5 col2" >6650940.137541</td>
+      <td id="T_5f07f_row5_col3" class="data row5 col3" >-23118359.127541</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>2023</td>
-      <td>DRESS</td>
-      <td>-4.078094e+06</td>
-      <td>-1.240339e+07</td>
+      <th id="T_5f07f_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_5f07f_row6_col0" class="data row6 col0" >2023</td>
+      <td id="T_5f07f_row6_col1" class="data row6 col1" >DRESS</td>
+      <td id="T_5f07f_row6_col2" class="data row6 col2" >-4078094.357618</td>
+      <td id="T_5f07f_row6_col3" class="data row6 col3" >-12403387.412381</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>2023</td>
-      <td>JACKET</td>
-      <td>-6.793317e+06</td>
-      <td>-4.924036e+07</td>
+      <th id="T_5f07f_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_5f07f_row7_col0" class="data row7 col0" >2023</td>
+      <td id="T_5f07f_row7_col1" class="data row7 col1" >JACKET</td>
+      <td id="T_5f07f_row7_col2" class="data row7 col2" >-6793316.568952</td>
+      <td id="T_5f07f_row7_col3" class="data row7 col3" >-49240364.221049</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>2023</td>
-      <td>PANTS</td>
-      <td>-1.636299e+07</td>
-      <td>-2.295608e+08</td>
+      <th id="T_5f07f_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_5f07f_row8_col0" class="data row8 col0" >2023</td>
+      <td id="T_5f07f_row8_col1" class="data row8 col1" >PANTS</td>
+      <td id="T_5f07f_row8_col2" class="data row8 col2" >-16362993.150075</td>
+      <td id="T_5f07f_row8_col3" class="data row8 col3" >-229560842.809919</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>2023</td>
-      <td>SHIRT</td>
-      <td>8.920908e+05</td>
-      <td>-4.019144e+06</td>
+      <th id="T_5f07f_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_5f07f_row9_col0" class="data row9 col0" >2023</td>
+      <td id="T_5f07f_row9_col1" class="data row9 col1" >SHIRT</td>
+      <td id="T_5f07f_row9_col2" class="data row9 col2" >892090.812023</td>
+      <td id="T_5f07f_row9_col3" class="data row9 col3" >-4019143.772023</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>2023</td>
-      <td>SWEATER</td>
-      <td>-5.701391e+06</td>
-      <td>-1.130507e+08</td>
+      <th id="T_5f07f_level0_row10" class="row_heading level0 row10" >10</th>
+      <td id="T_5f07f_row10_col0" class="data row10 col0" >2023</td>
+      <td id="T_5f07f_row10_col1" class="data row10 col1" >SWEATER</td>
+      <td id="T_5f07f_row10_col2" class="data row10 col2" >-5701391.450394</td>
+      <td id="T_5f07f_row10_col3" class="data row10 col3" >-113050731.029606</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>2023</td>
-      <td>TSHIRT</td>
-      <td>-1.150391e+07</td>
-      <td>-8.391323e+07</td>
+      <th id="T_5f07f_level0_row11" class="row_heading level0 row11" >11</th>
+      <td id="T_5f07f_row11_col0" class="data row11 col0" >2023</td>
+      <td id="T_5f07f_row11_col1" class="data row11 col1" >TSHIRT</td>
+      <td id="T_5f07f_row11_col2" class="data row11 col2" >-11503906.840478</td>
+      <td id="T_5f07f_row11_col3" class="data row11 col3" >-83913226.849522</td>
     </tr>
   </tbody>
 </table>
-</div>
 
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ibis</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
 </span></code></pre></div>
