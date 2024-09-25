@@ -9,3 +9,4 @@ docs/.hugo_build.lock
 *.ddb
 *.ddb.wal
 dist/
+site/
