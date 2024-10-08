@@ -6,8 +6,8 @@ authors = ["Max Halford <maxhalford25@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-ibis-framework = "^9.0.0"
+python = "^3.10"
+ibis-framework = "^9.5.0"
 altair = "^5.3.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -16,7 +16,7 @@ jupyter = "^1.0.0"
 pandas = "^2.2.1"
 pytest = "^8.2.1"
 names = "^0.3.0"
-ibis-framework = {extras = ["duckdb", "pandas"], version = "^9.0.0"}
+ibis-framework = {extras = ["duckdb", "pandas"], version = "^9.5.0"}
 mkdocs = "^1.6.0"
 pygments = "^2.18.0"
 vega-datasets = "^0.9.0"
