@@ -1,5 +1,10 @@
 name: Install Python env
 
+inputs:
+  python-version:
+    required: true
+    description: "Python version"
+
 runs:
   using: "composite"
   steps:
@@ -10,7 +15,7 @@ runs:
       id: setup-python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.11"
+        python-version: ${{ inputs.python-version }}
 
     - name: Load cached venv
       id: cached-poetry-dependencies
