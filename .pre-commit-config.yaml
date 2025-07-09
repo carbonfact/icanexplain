@@ -36,3 +36,11 @@ repos:
     rev: 0.7.1
     hooks:
       - id: nbstripout
+
+  - repo: local
+    hooks:
+      - id: check-external-actions-pinned
+        name: Check GitHub Actions are pinned
+        entry: pre-commit-hooks/check_pinned_actions.sh
+        language: script
+        pass_filenames: false
